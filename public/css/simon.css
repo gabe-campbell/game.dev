@@ -1,0 +1,93 @@
+button {
+  border: 1px solid black;
+}
+
+/*button:focus {
+  outline: 0;
+}*/
+
+.gameDiv {
+  height: 575px;
+  width: 600px;
+  margin-left: 355px;
+  padding: 50px 25px 0px 0px;
+/*  background: repeating-radial-gradient(#1A1914, #26231E, #272621);*/
+  background-color: black;
+  border: 5px solid black;
+  border-radius: 600px;
+}
+
+.logo {
+/*  background: repeating-radial-gradient(#1A1914, #26231E, #272621);*/
+  background-color: black;
+  border: 5px solid black;
+  border-radius: 300px;
+  position: absolute;
+  left: 528px;
+  top: 175px;
+  height: 300px;
+  width: 300px;
+}
+
+.rowOne,
+.rowTwo {
+  display: block;
+  margin-left: 50px;
+}
+
+.rowOne {
+  margin-bottom: 25px;
+}
+
+
+#btnBlue {
+  height: 250px;
+  width: 250px;
+  margin-right: 25px;
+  background: repeating-radial-gradient(#00A8F9, #02A3F1, #01ADF7);
+  border-bottom-left-radius: 500px;
+}
+
+#horizBar {
+  height: 23px;
+  width: 600px;
+  bottom: 359px;
+  float: none;
+  position: absolute;
+  background: repeating-radial-gradient(#1A1914, #26231E, #272621)
+  background-color: black;
+}
+
+#btnGreen {
+  height: 250px;
+  width: 250px;
+  margin-right: 25px;
+  background: repeating-radial-gradient(#0DB518, #0CBA1D, #0AB11B);
+  border-top-left-radius: 250px;
+}
+
+#btnNew {
+  position: absolute;
+  top: 650px;
+  left: 620px;
+  height: 40px;
+  width: 120px;
+}
+
+#btnRed {
+  height: 250px;
+  width: 250px;
+  background: repeating-radial-gradient(#FF422F, #FF3B2B, #FF3A29);
+  border-top-right-radius: 250px;
+}
+
+#title {
+  margin-left: 525px;
+}
+
+#btnYellow {
+  height: 250px;
+  width: 250px;
+  background: repeating-radial-gradient(#FFFF01, #FFFD00, #FFFC01);
+  border-bottom-right-radius: 250px;
+}

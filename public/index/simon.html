@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/simon.css">
+</head>
+
+<body>
+  <div id="logo"></div>
+  <div class="containerDiv">
+    <div class="gameDiv">
+      <span class="rowOne">
+        <button id="btnGreen" data-color="1"></button>
+        <button id="btnRed" data-color="2"></button>
+      </span>
+      <div class="logo"></div>
+      <span class="rowTwo">
+        <button id="btnBlue" data-color="3"></button>
+        <button id="btnYellow" data-color="4"></button>
+      </span>
+    </div>
+  </div>
+  <button id="btnNew">New Game</button>
+
+
+  <script type="text/javascript">
+      var gameArray = [];
+      var playArray = [];
+      var colorName = [];
+      
+      var randNum;
+      var color;
+      var colorPress;
+      var reset;
+      
+      function newGame(event) {
+        for (var i = 1; i <= 3; i++) {
+          randNum = Math.floor(Math.random() * 4 + 1);
+          gameArray.push(randNum);
+          console.log(gameArray);
+        };
+
+        for (var i = 0; i <= 2; i++) {
+          if (gameArray[i] == 1) {
+            color = 1;
+            colorName.push(color);
+            console.log(color);
+          } else if (gameArray[i] == 2) {
+            color = 2;
+            colorName.push(color);
+            console.log(color);
+          } else if (gameArray[i] == 3) {
+            color = 3;
+            colorName.push(color);
+            console.log(color);
+          } else if (gameArray[i] == 4) {
+            color = 4;
+            colorName.push(color);
+            console.log(color);
+          };
+        };
+        console.log(colorName);
+        reset++;
+      };
+
+      function colorCheck(event) {
+        if(this.getAttribute('data-color')) {
+          console.log(this.getAttribute('data-color'));
+          playArray.push(this.getAttribute('data-color'));
+          console.log(playArray);
+        };
+        if (playArray.length === gameArray.length && playArray === gameArray) {
+          console.log("Win!");
+        } else {
+          console.log("Lose!");
+        };
+      };
+
+      function resetGame() {
+        if (reset === 2) {
+          location.reload();
+        };
+      };
+
+    btnNew.addEventListener('click', newGame);
+    btnGreen.addEventListener('click', colorCheck);
+    btnRed.addEventListener('click', colorCheck);
+    btnBlue.addEventListener('click', colorCheck);
+    btnYellow.addEventListener('click', colorCheck);
+  </script>
+
+</body>
+</html>
+
+<!-- val lifeCount
+val gameArray
+val timer
+
+
+function (newGame(event)) {
+randGen 3 colors
+add to array
+play 3 numbers
+}
+
+function(lightRed(event)) {
+call redButton
+change color
+play sound
+}
+
+function(lightBlue(event)) {
+call blueButton
+change color
+play sound
+}
+
+function(lightYellow(event)) {
+call yellowButton
+change color
+play sound
+}
+
+function (colorGen) {
+random number 
+
+switch statement
+determines what color 
+adds color to array
+}
+
+function (gamePlay) {
+reiterate array
+prompt for user input
+if array is completed
+  colorGen
+if array is failed
+  lose life
+reset timer
+if all lives are lost
+  force gameOver
+}
+
+function(timedFail) {
+addtimer
+if 1 second
+  play 1 beep
+if 2 second
+  play 2 beep
+if n second
+  play n beep
+if timer reaches 5
+  force gameOver
+}
+
+function(gameOver) {
+stop game and timers
+show score
+prompt restart game
+} -->

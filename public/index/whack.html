@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/whack.css">
+    <style type="text/css">body, a:hover {cursor: url(http://cur.cursors-4u.net/games/gam-13/gam1282.cur), progress !important;}<div align="center" style="z-index:9;visibility:visible;"><a href="http://www.totallyfreecursors.com/" target="_blank" class="tfc"><img src="http://downloads.totallyfreecursors.com/public/CursorsLogo88-31.gif" border="0" width="88" height="31" alt="Free Pokeball Cursors at www.totallyfreecursors.com" /></a></div><style>HTML,BODY{cursor: url("http://downloads.totallyfreecursors.com/cursor_files/pokeball.cur"), url("http://downloads.totallyfreecursors.com/thumbnails/pokeball.gif"), auto;}</style>
+  </head>
+
+  <body>
+  <div class="bodyDiv">
+    <div id="instructionsDiv">
+      <h1 id="fontFill">Whack-a-Diglett!</h1>
+      <h1 id="fontBorder">Whack-a-Diglett!</h1>
+      <p id="instructions">The Diglett are running amok! Being the very best, like no one ever was, it is your job to keep them from taking over!</p>
+      <button id="newGameBtn">New Game</button>
+      <p id="pointTotalText">Points: </p><p id="pointTotal"></p>
+    </div>
+    
+    <div class="container">
+      <span class="rowOne">
+        <div class="moleHole" id="blockOne">
+            <div id="spriteOne"></div>
+        </div>
+        <div class="moleHole" id="blockTwo">
+          <div id="spriteTwo"></div>
+        </div>
+        <div class="moleHole" id="blockThree">
+          <div id="spriteThree"></div>
+        </div>
+      </span>
+      <span class="rowTwo">
+        <div class="moleHole" id="blockFour">
+          <div id="spriteFour"></div>
+        </div>
+        <div class="moleHole" id="blockFive">
+          <div id="spriteFive"></div>
+        </div>
+        <div class="moleHole" id="blockSix">
+          <div id="spriteSix"></div>
+        </div>
+      </span>
+      <span class="rowThree">
+        <div class="moleHole" id="blockSeven">
+          <div id="spriteSeven"></div>
+        </div>
+        <div class="moleHole" id="blockEight">
+          <div id="spriteEight"></div>
+        </div>
+        <div class="moleHole" id="blockNine">
+          <div id="spriteNine"></div>
+        </div>
+      </span>
+    </div>
+  </div>
+
+
+    <script type="text/javascript">
+      "use strict";
+
+      $(document).ready(function() {
+        
+
+        var digNum = 1;
+        var points = 1;
+        var gameStart = 0;
+
+        var digNum;
+        var myVar;
+
+        function newGame(event) {
+          $("#spriteOne, #spriteTwo, #spriteThree, #spriteFour, #spriteFive, #spriteSix, #spriteSeven, #spriteEight, #spriteNine").addClass('spriteHide');
+          points;
+          digInterval();
+        };
+
+        function digGen() {
+          if (points >= 0 && points < 15) {
+            digNum = Math.floor(Math.random()* 9 + 1);
+            console.log(digNum);
+            return digNum;
+          } else if (points >= 15 && points < 30) {
+            digNum = Math.floor(Math.random()* 22 + 1);
+            console.log(digNum);
+            return digNum;
+          } else if (points >= 30) {
+            digNum = Math.floor(Math.random()* 53 + 1);
+            console.log(digNum);
+            return digNum;
+          }
+          spriteShow();
+        };
+
+        function digInterval(event) {
+            myVar = setInterval(function(){ digGen() }, 750);
+            myVar = setInterval(function(){ spriteShow() }, 750);
+        };
+
+        function spriteShow(event){
+          if (digNum === 1) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+          } else if (digNum === 2) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+          } else if (digNum === 3) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+          } else if (digNum === 4) {
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+          } else if (digNum === 5) {
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 6) {
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 7) {
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 8) {
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 9) {
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 10) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+          } else if (digNum === 11) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+          } else if (digNum === 12) {
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 13) {
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 14) {
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 15) {
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 16) {
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 17) {
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 18) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+          } else if (digNum === 19) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 20) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 21) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 22) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 23) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 24) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 25) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 26) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 27) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 28) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+          } else if (digNum === 29) {
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 30) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 31) {
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 32) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 33) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 34) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 35) {
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 36) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 37) {
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 38) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 39) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 40) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 41) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 42) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 43) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+          } else if (digNum === 44) {
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+          } else if (digNum === 45) {
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 46) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 47) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteSix").removeClass('spriteHide');
+            $("#spriteSix").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+          } else if (digNum === 48) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 50) {
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteFour").removeClass('spriteHide');
+            $("#spriteFour").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 51) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+          } else if (digNum === 52) {
+            $("#spriteOne").removeClass('spriteHide');
+            $("#spriteOne").addClass('spriteShow');
+            $("#spriteThree").removeClass('spriteHide');
+            $("#spriteThree").addClass('spriteShow');
+            $("#spriteEight").removeClass('spriteHide');
+            $("#spriteEight").addClass('spriteShow');
+          } else if (digNum === 53) {
+            $("#spriteFive").removeClass('spriteHide');
+            $("#spriteFive").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } else if (digNum === 54) {
+            $("#spriteTwo").removeClass('spriteHide');
+            $("#spriteTwo").addClass('spriteShow');
+            $("#spriteSeven").removeClass('spriteHide');
+            $("#spriteSeven").addClass('spriteShow');
+            $("#spriteNine").removeClass('spriteHide');
+            $("#spriteNine").addClass('spriteShow');
+          } 
+        };
+
+        function spriteHide(event) {
+          $("#spriteOne").click(function() {
+            $("#spriteOne").removeClass('spriteShow');
+            $("#spriteOne").addClass('spriteHide');
+          });
+          $("#spriteTwo").click(function() {
+            $("#spriteTwo").removeClass('spriteShow');
+            $("#spriteTwo").addClass('spriteHide');
+          });
+          $("#spriteThree").click(function() {
+            $("#spriteThree").removeClass('spriteShow');
+            $("#spriteThree").addClass('spriteHide');
+          });
+          $("#spriteFour").click(function() {
+            $("#spriteFour").removeClass('spriteShow');
+            $("#spriteFour").addClass('spriteHide');
+          });
+          $("#spriteFive").click(function() {
+            $("#spriteFive").removeClass('spriteShow');
+            $("#spriteFive").addClass('spriteHide');
+          });
+          $("#spriteSix").click(function() {
+            $("#spriteSix").removeClass('spriteShow');
+            $("#spriteSix").addClass('spriteHide');
+          });
+          $("#spriteSeven").click(function() {
+            $("#spriteSeven").removeClass('spriteShow');
+            $("#spriteSeven").addClass('spriteHide');
+          });
+          $("#spriteEight").click(function() {
+            $("#spriteEight").removeClass('spriteShow');
+            $("#spriteEight").addClass('spriteHide');
+          });
+          $("#spriteNine").click(function() {
+            $("#spriteNine").removeClass('spriteShow');
+            $("#spriteNine").addClass('spriteHide');
+          });
+          points = points + 1;
+          console.log("Points: " + points);
+          $("#pointTotal").html(function(){
+            return points;
+          });
+        };
+
+        // function gameOver() {
+        //   if (points > 1 && $('#spriteOne').css('visibility') === 'visible' && $('#spriteTwo').css('visibility') === 'visible' && $('#spriteThree').css('visibility') === 'visible' && $('#spriteFour').css('visibility') === 'visible' && $('#spriteFive').css('visibility') === 'visible' && $('#spriteSix').css('visibility') === 'visible' && $('#spriteSeven').css('visibility') === 'visible' && $('#spriteEight').css('visibility') === 'visible' && $('#spriteNine').css('visibility') === 'visible') {
+        //       var confirmGameOver = confirm("Game Over\nYour Score Was: " + points + "\nPress OK or Cancel to try again");
+        //       if (confirmGameOver === 'true') {
+        //         location.href = '/index/whack.html';
+        //       } else {
+        //         location.href = '/index/whack.html';
+        //       }
+        //     }
+        // };
+
+        newGameBtn.addEventListener('click', newGame);
+        newGameBtn.addEventListener('click', spriteShow);
+        spriteOne.addEventListener('click', spriteHide);
+        spriteTwo.addEventListener('click', spriteHide);
+        spriteThree.addEventListener('click', spriteHide);
+        spriteFour.addEventListener('click', spriteHide);
+        spriteFive.addEventListener('click', spriteHide);
+        spriteSix.addEventListener('click', spriteHide);
+        spriteSeven.addEventListener('click', spriteHide);
+        spriteEight.addEventListener('click', spriteHide);
+        spriteNine.addEventListener('click', spriteHide);
+
+      });
+      
+    </script>
+  </body>
+</html>

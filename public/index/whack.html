@@ -60,7 +60,7 @@
 
       $(document).ready(function() {
         
-
+        //Declare Variables
         var digNum = 1;
         var points = 1;
         var gameStart = 0;
@@ -68,12 +68,18 @@
         var digNum;
         var myVar;
 
+        //Hides all sprites for game start
         function newGame(event) {
           $("#spriteOne, #spriteTwo, #spriteThree, #spriteFour, #spriteFive, #spriteSix, #spriteSeven, #spriteEight, #spriteNine").addClass('spriteHide');
           points;
           digInterval();
         };
 
+        //Seed Generator
+        //for point totals below 15, easy mode
+        //for point totals between 15 and 30, medium mode
+        //for point totals above 30, hard mode
+        //Random number picked for seed, then seed is found and displayed
         function digGen() {
           if (points >= 0 && points < 15) {
             digNum = Math.floor(Math.random()* 9 + 1);
@@ -91,11 +97,13 @@
           spriteShow();
         };
 
+        //Sets interval for spawning of sprites
         function digInterval(event) {
             myVar = setInterval(function(){ digGen() }, 750);
             myVar = setInterval(function(){ spriteShow() }, 750);
         };
 
+        //Seed list with various configurations based on numGen
         function spriteShow(event){
           if (digNum === 1) {
             $("#spriteOne").removeClass('spriteHide');
@@ -379,6 +387,7 @@
           } 
         };
 
+        //Sets sprites to hide on click 
         function spriteHide(event) {
           $("#spriteOne").click(function() {
             $("#spriteOne").removeClass('spriteShow');
@@ -423,6 +432,8 @@
           });
         };
 
+
+        //
         // function gameOver() {
         //   if (points > 1 && $('#spriteOne').css('visibility') === 'visible' && $('#spriteTwo').css('visibility') === 'visible' && $('#spriteThree').css('visibility') === 'visible' && $('#spriteFour').css('visibility') === 'visible' && $('#spriteFive').css('visibility') === 'visible' && $('#spriteSix').css('visibility') === 'visible' && $('#spriteSeven').css('visibility') === 'visible' && $('#spriteEight').css('visibility') === 'visible' && $('#spriteNine').css('visibility') === 'visible') {
         //       var confirmGameOver = confirm("Game Over\nYour Score Was: " + points + "\nPress OK or Cancel to try again");
@@ -434,6 +445,7 @@
         //     }
         // };
 
+        //Event listeners
         newGameBtn.addEventListener('click', newGame);
         newGameBtn.addEventListener('click', spriteShow);
         spriteOne.addEventListener('click', spriteHide);
